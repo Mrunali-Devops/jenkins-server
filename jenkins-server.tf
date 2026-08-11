@@ -1,3 +1,6 @@
+
+### data source ###
+
 data "aws_ami" "latest-amazon-linux-image" {
   most_recent = true
   owners      = ["amazon"]
@@ -10,6 +13,8 @@ data "aws_ami" "latest-amazon-linux-image" {
     values = ["hvm"]
   }
 }
+
+##### Resource file #########
 
 resource "aws_instance" "myapp-server" {
   ami                         = data.aws_ami.latest-amazon-linux-image.id
